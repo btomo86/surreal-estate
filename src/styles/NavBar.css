@@ -39,4 +39,10 @@
   text-decoration: none;
   color: #66fcf1;
   font-weight: bolder;
+  cursor: pointer;
+}
+
+a:link {
+  color: pink;
+  text-decoration: none;
 }
