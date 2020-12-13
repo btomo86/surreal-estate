@@ -22,7 +22,7 @@ const AddProperty = () => {
 
   return (
     <div className="AddProperty">
-      <form onSubmit={handleAddProperty}>
+      <form className="propertyForm" onSubmit={handleAddProperty}>
         <label htmlFor="title">
           Text
           <input
@@ -49,7 +49,7 @@ const AddProperty = () => {
           </select>
         </label>
         <label htmlFor="type">
-          Type of Property
+          Property Type
           <select
             id="type"
             name="type"
@@ -106,7 +106,7 @@ const AddProperty = () => {
             required
           />
         </label>
-        <button className="add-prop-button" type="submit">
+        <button className="btn" type="submit">
           Add
         </button>
       </form>
