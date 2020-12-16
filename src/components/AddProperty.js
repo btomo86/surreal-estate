@@ -1,19 +1,43 @@
 import React, { useState } from "react";
 import "../styles/AddProperty.css";
+import axios from "axios";
 
 const AddProperty = () => {
   const initialState = {
     fields: {
       title: "",
       city: "manchester",
+      type: "",
+      bedrooms: "",
+      bathrooms: "",
+      price: "",
+      email: "",
     },
   };
 
   const [fields, setFields] = useState(initialState.fields);
 
-  const handleAddProperty = (event) => {
+  const handleAddProperty = async (event) => {
     event.preventDefault();
-    console.log(fields);
+    await axios
+      .post("http://localhost:3000/api/v1/PropertyListing", fields)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        if (error.response.status === 404) {
+          alert(
+            "This property cannot be found. Please try a different property."
+          );
+        } else if (error.response.status === 500) {
+          throw new Error("Server error. Please try again later.");
+        } else {
+          console.log(error.message);
+          throw new Error(
+            "Whoops, something has gone wrong... Please try again"
+          );
+        }
+      });
   };
 
   const handleFieldChange = (event) => {

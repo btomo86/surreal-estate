@@ -7,6 +7,7 @@
   border-bottom: 1px groove #828896;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .logo {
@@ -18,7 +19,6 @@
 
 .navbar-links {
   margin-right: 1em;
-  margin-left: auto;
   padding: 0;
   text-align: center;
   align-items: center;
