@@ -4,16 +4,20 @@ import "../styles/NavBar.css";
 import NavBar from "../components/NavBar";
 import Properties from "../components/Properties";
 import AddProperty from "../components/AddProperty";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Router } from "react-router-dom";
+import { createBrowserHistory } from "history";
 
 function App() {
+  const ourHistory = createBrowserHistory();
   return (
     <>
-      <NavBar />
-      <Switch>
-        <Route exact path="/" component={Properties} />
-        <Route exact path="/add-property" component={AddProperty} />
-      </Switch>
+      <Router history={ourHistory}>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={Properties} />
+          <Route exact path="/add-property" component={AddProperty} />
+        </Switch>
+      </Router>
     </>
   );
 }

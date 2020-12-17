@@ -3,6 +3,6 @@ import App from "../components/App";
 
 test("Renders the app with H2", () => {
   render(<App />);
-  const linkElement = screen.getByText(/Surreal Estate/i);
+  const linkElement = screen.getByText(/Properties Page/i);
   expect(linkElement).toBeInTheDocument();
 });
