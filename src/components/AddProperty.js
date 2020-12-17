@@ -1,52 +1,58 @@
 import React, { useState } from "react";
 import "../styles/AddProperty.css";
 import axios from "axios";
+import Alert from "./Alert";
 
 const AddProperty = () => {
   const initialState = {
     fields: {
       title: "",
-      city: "manchester",
+      city: "Manchester",
       type: "",
       bedrooms: "",
       bathrooms: "",
       price: "",
       email: "",
     },
+    alert: {
+      message: "",
+      isSuccess: false,
+    },
   };
 
   const [fields, setFields] = useState(initialState.fields);
 
-  const handleAddProperty = async (event) => {
-    event.preventDefault();
-    await axios
-      .post("http://localhost:3000/api/v1/PropertyListing", fields)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        if (error.response.status === 404) {
-          alert(
-            "This property cannot be found. Please try a different property."
-          );
-        } else if (error.response.status === 500) {
-          throw new Error("Server error. Please try again later.");
-        } else {
-          console.log(error.message);
-          throw new Error(
-            "Whoops, something has gone wrong... Please try again"
-          );
-        }
-      });
-  };
+  const [alert, setAlert] = useState(initialState.alert);
 
   const handleFieldChange = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
   };
 
+  const handleAddProperty = async (event) => {
+    event.preventDefault();
+
+    setAlert({ message: "", isSuccess: false });
+
+    await axios
+      .post("http://localhost:3000/api/v1/PropertyListing", fields)
+      .then(() =>
+        setAlert({
+          message: "Property Added",
+          isSuccess: true,
+        })
+      )
+      .catch(() =>
+        setAlert({
+          message: "Server error. Please try again later.",
+          isSuccess: false,
+        })
+      );
+  };
+
   return (
     <div className="AddProperty">
       <form className="propertyForm" onSubmit={handleAddProperty}>
+        <Alert message={alert.message} success={alert.isSuccess} />
         <label htmlFor="title">
           Text
           <input
