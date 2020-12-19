@@ -1,10 +1,11 @@
 import React from "react";
+
 import {
   FaFortAwesome,
   FaBed,
   FaBath,
   FaPoundSign,
-  FaMailBulk,
+  FaRegEnvelope,
 } from "react-icons/fa";
 
 const PropertyCard = ({
@@ -18,7 +19,7 @@ const PropertyCard = ({
 }) => {
   return (
     <div className="property-card">
-      <FaFortAwesome />
+      <FaFortAwesome size="2em" color="#66fcf1" className="rlogo" />
       <div className="title">
         <span>{title}</span>
       </div>
@@ -26,22 +27,22 @@ const PropertyCard = ({
         <span>{type}</span>
       </div>
       <div className="bathroom">
-        <FaBath />
+        <FaBath size="2em" color="#66fcf1" />
         <span>{bathrooms}</span>
       </div>
       <div className="bedrooms">
-        <FaBed />
+        <FaBed size="2em" color="#66fcf1" />
         <span>{bedrooms}</span>
       </div>
       <div className="price">
-        <FaPoundSign />
+        <FaPoundSign size="2em" color="#66fcf1" />
         <span>{price}</span>
       </div>
       <div className="city">
         <span>{city}</span>
       </div>
       <div className="email">
-        <FaMailBulk />
+        <FaRegEnvelope size="2em" color="#66fcf1" />
         <span>{email}</span>
         <p>
           <a className="email-btn" href="mailto:someone@example.com">

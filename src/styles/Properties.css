@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 h2 {
   display: flex;
   justify-content: center;
@@ -6,4 +8,26 @@ h2 {
   color: #66fcf1;
   margin-top: 20px;
   font-size: 40px;
+}
+
+.property-card {
+  box-shadow: 0 6px 10px 0 rgba(#66fcf1);
+  transition: 0.3s;
+  margin: 10px;
+  border-radius: 5px;
+  flex-direction: column;
+  display: inline-block;
+  width: 18%;
+  background: #45a29e;
+}
+
+.Properties {
+  padding: 0.5rem;
+}
+
+.Properties > .item {
+  display: inline-block;
+  width: 33.33%;
+  padding: 0.5rem;
+  box-sizing: border-box;
 }

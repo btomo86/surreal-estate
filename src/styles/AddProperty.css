@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #c5c6c7;
+  background-color: #242d35;
 }
 
 .AddProperty {
@@ -16,7 +16,7 @@ body {
   width: 30%;
   border-style: ridge;
   border-color: #66fcf1;
-  border-width: 7px;
+  border-width: 12px;
   background-color: #45a29e;
   color: #66fcf1;
 }

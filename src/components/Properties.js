@@ -1,14 +1,43 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "../styles/Properties.css";
 import PropertyCard from "./PropertyCard";
+import Alert from "./Alert";
 
-const Properties = () => {
+const initialState = {
+  properties: [],
+  alert: {
+    message: "",
+    isSuccess: false,
+  },
+};
+
+function Properties() {
+  const [properties, setProperties] = useState(initialState.properties);
+
+  const [alert, setAlert] = useState(initialState.alert);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/api/v1/PropertyListing")
+      .then((response) => {
+        setProperties(response.data);
+        console.log(response.data);
+      })
+      .catch((err) => {
+        setAlert({ message: "Error retrieving data", isSuccess: false });
+        console.log(err);
+      });
+  }, []);
   return (
     <>
       <h2>Properties Page</h2>
-      <PropertyCard />
+      {properties.map((property) => (
+        <PropertyCard key={property._id} {...property} />
+      ))}
+      <Alert message={alert.message} success={alert.isSuccess} />
     </>
   );
-};
+}
 
 export default Properties;
