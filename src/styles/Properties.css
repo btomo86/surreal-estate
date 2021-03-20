@@ -6,35 +6,31 @@ h2 {
   align-items: center;
   font-family: "Roboto", sans-serif;
   color: #66fcf1;
-  margin-top: 20px;
+  margin-top: 30px;
   font-size: 40px;
 }
 
-/* .property-card {
-  min-height: 30vh;
-  box-shadow: 0px 5px 30px rgba(#66fcf1);
-  text-align: center;
-  border-radius: 1rem;
-  width: 18%;
-  background: #45a29e;
-  margin: 10px;
-  border-radius: 5px;
-  flex-direction: column;
-  justify-content: center;
-  display: inline-block;
-} */
 .property-card {
   box-shadow: 0 6px 10px 0 rgba(#66fcf1);
-  transition: 0.3s;
   margin: 10px;
   border-radius: 5px;
   flex-direction: column;
   justify-content: center;
   display: inline-block;
-  width: 18%;
+  width: 30%;
   background: #45a29e;
   min-height: 30vh;
   text-align: center;
+  font-size: 20px;
+}
+
+.propertie-container {
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+  background-color: red;
 }
 
 #logo {

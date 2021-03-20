@@ -1,0 +1,14 @@
+.side-bar {
+  width: 300px;
+  height: 100vh;
+  padding: 20px;
+  background-color: #45a29e;
+  color: black;
+  position: fixed;
+  left: 0;
+  top: 72px;
+}
+.side-bar li {
+  display: block;
+  text-decoration: none;
+}
