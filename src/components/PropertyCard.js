@@ -19,7 +19,7 @@ const PropertyCard = ({
 }) => {
   return (
     <div className="property-card">
-      <FaFortAwesome size="2em" color="#66fcf1" className="rlogo" />
+      <FaFortAwesome id="logo" size="1em" color="#66fcf1" />
       <div className="title">
         <span>{title}</span>
       </div>
@@ -27,22 +27,22 @@ const PropertyCard = ({
         <span>{type}</span>
       </div>
       <div className="bathroom">
-        <FaBath size="2em" color="#66fcf1" />
+        <FaBath size="1em" color="#66fcf1" />
         <span>{bathrooms}</span>
       </div>
       <div className="bedrooms">
-        <FaBed size="2em" color="#66fcf1" />
+        <FaBed size="1em" color="#66fcf1" />
         <span>{bedrooms}</span>
       </div>
       <div className="price">
-        <FaPoundSign size="2em" color="#66fcf1" />
+        <FaPoundSign size="1em" color="#66fcf1" />
         <span>{price}</span>
       </div>
       <div className="city">
         <span>{city}</span>
       </div>
       <div className="email">
-        <FaRegEnvelope size="2em" color="#66fcf1" />
+        <FaRegEnvelope size="1em" color="#66fcf1" />
         <span>{email}</span>
         <p>
           <a className="email-btn" href="mailto:someone@example.com">

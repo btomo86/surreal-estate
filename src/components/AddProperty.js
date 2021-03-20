@@ -37,7 +37,7 @@ const AddProperty = () => {
       .post("http://localhost:3000/api/v1/PropertyListing", fields)
       .then(() =>
         setAlert({
-          message: "Property Added",
+          message: "Property Added Successfully",
           isSuccess: true,
         })
       )
@@ -139,6 +139,7 @@ const AddProperty = () => {
         <button className="btn" type="submit">
           Add
         </button>
+        <Alert message={alert.message} success={alert.isSuccess} />
       </form>
     </div>
   );

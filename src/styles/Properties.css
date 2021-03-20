@@ -10,15 +10,36 @@ h2 {
   font-size: 40px;
 }
 
+/* .property-card {
+  min-height: 30vh;
+  box-shadow: 0px 5px 30px rgba(#66fcf1);
+  text-align: center;
+  border-radius: 1rem;
+  width: 18%;
+  background: #45a29e;
+  margin: 10px;
+  border-radius: 5px;
+  flex-direction: column;
+  justify-content: center;
+  display: inline-block;
+} */
 .property-card {
   box-shadow: 0 6px 10px 0 rgba(#66fcf1);
   transition: 0.3s;
   margin: 10px;
   border-radius: 5px;
   flex-direction: column;
+  justify-content: center;
   display: inline-block;
   width: 18%;
   background: #45a29e;
+  min-height: 30vh;
+  text-align: center;
+}
+
+#logo {
+  padding-left: 50%;
+  font-size: 3email rem;
 }
 
 .Properties {
@@ -30,4 +51,29 @@ h2 {
   width: 33.33%;
   padding: 0.5rem;
   box-sizing: border-box;
+}
+
+.bathroom {
+  font-weight: bold;
+}
+
+.bedroom {
+  font-weight: bold;
+  padding-top: 1rem;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.email {
+  font-weight: bold;
+}
+
+.city {
+  font-weight: bold;
 }

@@ -13,10 +13,10 @@ body {
   display: flex;
   margin: 5% auto;
   padding: 10px;
-  width: 30%;
+  width: 20%;
   border-style: ridge;
   border-color: #66fcf1;
-  border-width: 12px;
+  border-radius: 1rem;
   background-color: #45a29e;
   color: #66fcf1;
 }
@@ -24,6 +24,8 @@ body {
 form {
   display: flex;
   flex-direction: column;
+  margin-left: 20%;
+  width: 20%;
 }
 
 .btn {
@@ -40,6 +42,7 @@ form {
   font-style: "Roboto";
   font-size: larger;
 }
+
 #city {
   font-size: medium;
 }
