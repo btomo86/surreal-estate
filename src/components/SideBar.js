@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../styles/SideBar.css";
 import qs from "qs";
+import { FaSearch } from "react-icons/fa";
 
 const SideBar = () => {
   const { search } = useLocation();
+  const history = useHistory();
+
   const [searchQuery, setSearchQuery] = useState("");
 
   const buildQueryString = (operation, valueObj) => {
@@ -14,6 +17,8 @@ const SideBar = () => {
     const newQueryParams = {
       ...currentQueryParams,
       [operation]: JSON.stringify(valueObj),
+      ...JSON.parse(currentQueryParams[operation] || "{}"),
+      ...valueObj,
     };
 
     return qs.stringify(newQueryParams, {
@@ -21,14 +26,25 @@ const SideBar = () => {
       encode: false,
     });
   };
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const newQueryString = buildQueryString("query", {
+      title: { $regex: searchQuery },
+    });
+    history.push(newQueryString);
+  };
   return (
     <div className="side-bar">
-      <form>
+      <form onSubmit={handleSearch}>
         <input
           type="search"
           value={searchQuery}
           onChange={(event) => setSearchQuery(event.target.value)}
         />
+        <button type="submit">
+          <FaSearch /> Search
+        </button>
       </form>
       <ul>
         <p>Filter by City</p>
@@ -40,7 +56,7 @@ const SideBar = () => {
           Sheffield
         </Link>
         <Link to={buildQueryString("query", { city: "Liverpool" })}>
-          Liverpoolr
+          Liverpool
         </Link>
         <p>Filter by Price</p>
         <Link to={buildQueryString("sort", { price: 1 })}>Ascending</Link>
